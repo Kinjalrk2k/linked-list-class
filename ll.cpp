@@ -50,6 +50,17 @@ class LinkedList
         cout<<"\b\b  \b\b";
     }
 
+    void print2()
+    {
+        Node *temp = head;
+        for(int i=0; i<llsize; i++)
+        {
+            cout << temp->data << "->";
+            temp = temp->next;
+        }
+        cout<<"\b\b  \b\b";
+    }
+
     void push(int data)
     {
         Node *temp = new Node(data);
@@ -121,6 +132,23 @@ class LinkedList
        //return temp;
     }
     */
+
+    void circular()
+    {
+        // declare a node variable start and
+        // assign head node into start node.
+        Node* start = head;
+
+        // check that while head->next not equal
+        // to NULL then head points to next node.
+        while (head->next != NULL)
+            head = head->next;
+
+        // if head->next points to NULL then
+        // start assign to the head->next node.
+        head->next = start;
+        head=head->next;
+    }
 
     /* Function to print linked list */
 
